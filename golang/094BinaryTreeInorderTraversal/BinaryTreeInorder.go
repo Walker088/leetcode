@@ -1,14 +1,9 @@
 package BinaryTreeInorder
 
-//TreeNode : Definition for a binary tree node.
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
+import bt "github.com/Walker088/leetcode/golang/DataStructure/BinaryTree"
 
 //InorderTraversal returns
-func InorderTraversal(root *TreeNode) []int {
+func InorderTraversal(root *bt.TreeNode) []int {
 	if root == nil {
 		return nil
 	}

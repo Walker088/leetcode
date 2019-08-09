@@ -1,19 +1,16 @@
 package ConsBinaryTree
 
-import "fmt"
+import (
+	"fmt"
 
-//TreeNode defines a binary tree
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
+	bt "github.com/Walker088/leetcode/golang/DataStructure/BinaryTree"
+)
 
-func buildTree(postorder []int, ihm map[int]int, postStart int, postEnd int, inStart int) *TreeNode {
+func buildTree(postorder []int, ihm map[int]int, postStart int, postEnd int, inStart int) *bt.TreeNode {
 	if postStart > postEnd {
 		return nil
 	}
-	root := &TreeNode{Val: postorder[postEnd]}
+	root := &bt.TreeNode{Val: postorder[postEnd]}
 	rootID := ihm[root.Val]
 	leftLen := rootID - inStart
 	root.Left = buildTree(postorder, ihm, postStart, postStart+leftLen-1, inStart)
@@ -22,7 +19,7 @@ func buildTree(postorder []int, ihm map[int]int, postStart int, postEnd int, inS
 }
 
 //BuildTree builds a binary tree by inorder/postorder traversal
-func BuildTree(inorder []int, postorder []int) *TreeNode {
+func BuildTree(inorder []int, postorder []int) *bt.TreeNode {
 	fmt.Println("BuildTree")
 	if (len(inorder) != len(postorder)) || len(inorder) <= 0 {
 		return nil

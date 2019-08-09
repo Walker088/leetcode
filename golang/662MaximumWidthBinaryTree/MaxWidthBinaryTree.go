@@ -1,11 +1,6 @@
 package MaxWidthBinaryTree
 
-//TreeNode : Definition for a binary tree node.
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
+import bt "github.com/Walker088/leetcode/golang/DataStructure/BinaryTree"
 
 func max(a int, b int) int {
 	if a > b {
@@ -14,7 +9,7 @@ func max(a int, b int) int {
 	return b
 }
 
-func dfs(n *TreeNode, id int, d int, lefts *[]int) int { // d: depth
+func dfs(n *bt.TreeNode, id int, d int, lefts *[]int) int { // d: depth
 	if n == nil {
 		return 0
 	}
@@ -25,7 +20,7 @@ func dfs(n *TreeNode, id int, d int, lefts *[]int) int { // d: depth
 	return max(id-(*lefts)[d]+1, max(dfs(n.Left, id*2, d+1, lefts), dfs(n.Right, id*2+1, d+1, lefts)))
 }
 
-func widthOfBinaryTree(root *TreeNode) int {
+func widthOfBinaryTree(root *bt.TreeNode) int {
 	var lefts []int
 	return dfs(root, 1, 0, &lefts)
 }

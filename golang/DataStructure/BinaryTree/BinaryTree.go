@@ -10,11 +10,12 @@ type TreeNode struct {
 }
 
 //NewBinaryTree returns a Binary Tree instance base on the parameters
-func NewBinaryTree(params ...interface{}) *TreeNode {
-	if len(params) < 0 {
-		return &TreeNode{}
+func NewBinaryTree(v int, l *TreeNode, r *TreeNode) *TreeNode {
+	return &TreeNode{
+		Val:   v,
+		Left:  l,
+		Right: r,
 	}
-	return &TreeNode{}
 }
 
 //GetHeight returns the height of a Binary Tree
@@ -28,6 +29,16 @@ func (bt *TreeNode) GetHeight() int {
 		return lefth + 1
 	}
 	return righth + 1
+}
+
+//WholeTreePrint prints the detail of a binary tree
+func (bt *TreeNode) WholeTreePrint(s string, h int) {
+	if bt == nil {
+		return
+	}
+	fmt.Println(s, ": ", bt.Val, " height: ", h)
+	bt.Left.WholeTreePrint("L", h-1)
+	bt.Right.WholeTreePrint("R", h-1)
 }
 
 //PrintByPostOrder prints the elements in a Binary Tree by Postorder (Left-Right-Root)

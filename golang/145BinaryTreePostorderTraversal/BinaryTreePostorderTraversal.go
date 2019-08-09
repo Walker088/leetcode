@@ -1,14 +1,9 @@
 package BinaryTreePostorder
 
-//TreeNode : Definition for a binary tree node.
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
+import bt "github.com/Walker088/leetcode/golang/DataStructure/BinaryTree"
 
 //PostorderTraversal returns preorder traversal of a binary tree
-func PostorderTraversal(root *TreeNode) []int {
+func PostorderTraversal(root *bt.TreeNode) []int {
 	//fmt.Println("PostorderTraversal")
 	if root == nil {
 		return nil
