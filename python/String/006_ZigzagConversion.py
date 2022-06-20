@@ -36,10 +36,8 @@ s consists of English letters (lower-case and upper-case), ',' and '.'.
 
 """
 
-import itertools
 import time
 import random, string
-from pprint import pprint
 
 letters = string.ascii_lowercase + string.ascii_uppercase + string.digits + ',.'
 
@@ -132,11 +130,3 @@ if __name__ == "__main__":
     loopPerf(iters, solution.convertV2)
     e2 = time.time_ns()
     print(f"V3 EXEC TIME: {(e2 - s2)/1000000} ms")
-
-    s3 = time.time_ns()
-    solution.convertV3(exp_1["s"], exp_1["nr"])
-    solution.convertV3(exp_2["s"], exp_2["nr"])
-    solution.convertV3(exp_3["s"], exp_3["nr"])
-    loopPerf(iters, solution.convertV3)
-    e3 = time.time_ns()
-    print(f"V3 EXEC TIME: {(e3 - s3)/1000000} ms")
